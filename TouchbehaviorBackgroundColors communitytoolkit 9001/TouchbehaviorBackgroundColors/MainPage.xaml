@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:main="clr-namespace:TouchbehaviorBackgroundColors;assembly=TouchbehaviorBackgroundColors"
+             x:Class="TouchbehaviorBackgroundColors.MainPage">
+<ContentPage.Content>
+    <StackLayout>
+        <VerticalStackLayout>
+            <VerticalStackLayout.Behaviors>
+                <toolkit:TouchBehavior
+                    LongPressCommand="{Binding ToggleCommand}"
+                    Command="{Binding ToggleCommand}"/>
+            </VerticalStackLayout.Behaviors>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="64" />
+                    <RowDefinition Height="64" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    BackgroundColor="{Binding StatusBackgroundColor}"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="fgd"
+                    TextColor="Black">
+                </Label>
+                <Label
+                    BackgroundColor="{Binding ReverseStatusBackgroundColor}"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Text="{Binding Text}"
+                    TextColor="Black"/>
+            </Grid>
+        </VerticalStackLayout>
+        <Button Command="{Binding ToggleCommand}"
+                Text="{Binding IsSelectedText}"
+                Margin="10"/>
+    </StackLayout>
+</ContentPage.Content>
+</ContentPage>
